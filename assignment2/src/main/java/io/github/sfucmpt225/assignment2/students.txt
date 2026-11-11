@@ -1,0 +1,19 @@
+# The students: add-student <id> <credits> <name>
+add-student 301000001 45 Maya Chen
+add-student 301000002 12 Liam Patel
+add-student 301000003 90 Sofia Rossi
+add-student 301000004 30 Noah Kim
+add-student 301000005 60 Aria Singh
+add-student 301000006 30 Ethan Nguyen
+add-student 301000007 105 Zara Ahmed
+add-student 301000008 0 Lucas Martin
+add-student 301000009 75 Olivia Brown
+add-student 301000010 18 Mateo Garcia
+add-student 301000011 30 Hana Sato
+add-student 301000012 33 Omar Haddad
+add-student 301000013 120 Emma Wilson
+add-student 301000014 6 Kai Thompson
+add-student 301000015 48 Nora Jensen
+add-student 301000016 87 Ravi Sharma
+add-student 301000017 24 Leila Karimi
+add-student 301000018 54 Daniel Park

@@ -1,0 +1,136 @@
+# CourseReg demo. Run it from the folder that holds the .java files:
+#     java CourseRegApp data/demo.txt
+# and compare what it prints with data/demo_expected.txt.
+
+> load data/catalog.txt
+Loaded 26 commands from data/catalog.txt.
+> load data/students.txt
+Loaded 18 commands from data/students.txt.
+> stats
+Students: 18, in a hash table with 32 buckets (load factor 0.5625)
+Courses:  26, in an AVL tree of height 4 (CMPT 105W to STAT 270)
+          The shortest possible tree with 26 nodes has height 4; a plain BST could have height 25.
+
+# Browse the catalog: a range of course codes, then one subject.
+> courses CMPT 200 CMPT 299
+Courses from CMPT 200 to CMPT 299:
+  CMPT 210   Probability and Computing  (0/3 seats)
+  CMPT 213   Object Oriented Design in Java  (0/3 seats)
+  CMPT 225   Data Structures and Programming  (0/3 seats)
+  CMPT 263   Introduction to Human-Centred Computing  (0/3 seats)
+  CMPT 272   Web I - Client-side Development  (0/3 seats)
+  CMPT 276   Introduction to Software Engineering  (0/3 seats)
+  CMPT 295   Introduction to Computer Systems  (0/3 seats)
+(7 courses)
+> courses MATH
+MATH courses:
+  MATH 150   Calculus I with Review  (0/4 seats)
+  MATH 151   Calculus I  (0/4 seats)
+  MATH 152   Calculus II  (0/4 seats)
+  MATH 232   Applied Linear Algebra  (0/3 seats)
+  MATH 240   Algebra I: Linear Algebra  (0/3 seats)
+(5 courses)
+
+# CMPT 225 has 3 seats. The first three students get in...
+> enroll 301000002 CMPT 225
+Enrolled 301000002 Liam Patel in CMPT 225 (2 seats left).
+> enroll 301000004 CMPT 225
+Enrolled 301000004 Noah Kim in CMPT 225 (1 seat left).
+> enroll 301000008 CMPT 225
+Enrolled 301000008 Lucas Martin in CMPT 225 (0 seats left).
+
+# ...and the next four go on the waitlist.
+> enroll 301000006 CMPT 225
+CMPT 225 is full: 301000006 Ethan Nguyen is on the waitlist (1 waiting).
+> enroll 301000003 CMPT 225
+CMPT 225 is full: 301000003 Sofia Rossi is on the waitlist (2 waiting).
+> enroll 301000012 CMPT 225
+CMPT 225 is full: 301000012 Omar Haddad is on the waitlist (3 waiting).
+> enroll 301000011 CMPT 225
+CMPT 225 is full: 301000011 Hana Sato is on the waitlist (4 waiting).
+
+# More credits come first. Ethan and Hana both have 30 credits, so the earlier request wins.
+> waitlist CMPT 225
+CMPT 225 waitlist (4 waiting):
+  1. 301000003 Sofia Rossi (90 credits)
+  2. 301000012 Omar Haddad (33 credits)
+  3. 301000006 Ethan Nguyen (30 credits)
+  4. 301000011 Hana Sato (30 credits)
+> course CMPT 225
+CMPT 225 Data Structures and Programming
+  3 of 3 seats taken, 4 waiting (next: 301000003 Sofia Rossi)
+
+# Mistakes the registrar must catch.
+> enroll 301000004 CMPT 225
+Error: 301000004 is already enrolled in CMPT 225.
+> enroll 301000006 CMPT 225
+Error: 301000006 is already on the waitlist for CMPT 225.
+> enroll 301999999 CMPT 225
+Error: no student with id 301999999.
+> enroll 301000001 CMPT 999
+Error: no course CMPT 999.
+> drop 301000006 CMPT 225
+Error: 301000006 is not enrolled in CMPT 225 (they are on its waitlist).
+
+# A student drops CMPT 225: the top of the waitlist takes the free seat.
+> drop 301000008 CMPT 225
+Dropped 301000008 Lucas Martin from CMPT 225.
+301000003 Sofia Rossi moved off the waitlist into the free seat.
+> roster CMPT 225
+CMPT 225 roster (3 of 3 seats taken):
+  301000002 Liam Patel
+  301000003 Sofia Rossi
+  301000004 Noah Kim
+> waitlist CMPT 225
+CMPT 225 waitlist (3 waiting):
+  1. 301000012 Omar Haddad (33 credits)
+  2. 301000006 Ethan Nguyen (30 credits)
+  3. 301000011 Hana Sato (30 credits)
+
+# Maya enrolls in three courses and then drops one.
+> enroll 301000001 MACM 101
+Enrolled 301000001 Maya Chen in MACM 101 (3 seats left).
+> enroll 301000001 MATH 232
+Enrolled 301000001 Maya Chen in MATH 232 (2 seats left).
+> enroll 301000001 CMPT 276
+Enrolled 301000001 Maya Chen in CMPT 276 (2 seats left).
+> drop 301000001 MATH 232
+Dropped 301000001 Maya Chen from MATH 232.
+> student 301000001
+301000001 Maya Chen, 45 credits
+  Enrolled in: CMPT 276, MACM 101
+  Waiting for: (none)
+> student 301000003
+301000003 Sofia Rossi, 90 credits
+  Enrolled in: CMPT 225
+  Waiting for: (none)
+
+# The catalog's AVL tree, turned on its side: the root is at the left.
+> tree
+                        STAT 270
+                  MATH 240
+            MATH 232
+                        MATH 152
+                  MATH 151
+                        MATH 150
+      MACM 201
+                  MACM 101
+            CMPT 383
+                  CMPT 373
+CMPT 371
+                        CMPT 354
+                  CMPT 353
+                        CMPT 310
+            CMPT 307
+                        CMPT 300
+                  CMPT 295
+                        CMPT 276
+      CMPT 272
+                        CMPT 263
+                  CMPT 225
+                        CMPT 213
+            CMPT 210
+                        CMPT 125
+                  CMPT 120
+                        CMPT 105W
+> quit

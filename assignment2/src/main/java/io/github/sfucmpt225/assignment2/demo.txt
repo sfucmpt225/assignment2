@@ -1,0 +1,50 @@
+# CourseReg demo. Run it from the folder that holds the .java files:
+#     java CourseRegApp data/demo.txt
+# and compare what it prints with data/demo_expected.txt.
+
+load data/catalog.txt
+load data/students.txt
+stats
+
+# Browse the catalog: a range of course codes, then one subject.
+courses CMPT 200 CMPT 299
+courses MATH
+
+# CMPT 225 has 3 seats. The first three students get in...
+enroll 301000002 CMPT 225
+enroll 301000004 CMPT 225
+enroll 301000008 CMPT 225
+
+# ...and the next four go on the waitlist.
+enroll 301000006 CMPT 225
+enroll 301000003 CMPT 225
+enroll 301000012 CMPT 225
+enroll 301000011 CMPT 225
+
+# More credits come first. Ethan and Hana both have 30 credits, so the earlier request wins.
+waitlist CMPT 225
+course CMPT 225
+
+# Mistakes the registrar must catch.
+enroll 301000004 CMPT 225
+enroll 301000006 CMPT 225
+enroll 301999999 CMPT 225
+enroll 301000001 CMPT 999
+drop 301000006 CMPT 225
+
+# A student drops CMPT 225: the top of the waitlist takes the free seat.
+drop 301000008 CMPT 225
+roster CMPT 225
+waitlist CMPT 225
+
+# Maya enrolls in three courses and then drops one.
+enroll 301000001 MACM 101
+enroll 301000001 MATH 232
+enroll 301000001 CMPT 276
+drop 301000001 MATH 232
+student 301000001
+student 301000003
+
+# The catalog's AVL tree, turned on its side: the root is at the left.
+tree
+quit

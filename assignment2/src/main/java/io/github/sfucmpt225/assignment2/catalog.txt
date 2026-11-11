@@ -1,0 +1,30 @@
+# The course catalog: add-course <subject> <number> <seats> <title>
+# The courses are listed in order of course code, which is the worst case
+# for a plain binary search tree. The seat counts are tiny so that the
+# waitlists fill up quickly.
+add-course CMPT 105W 3 Social Issues and Communication Strategies in Computing Science
+add-course CMPT 120 4 Introduction to Computing Science and Programming I
+add-course CMPT 125 4 Introduction to Computing Science and Programming II
+add-course CMPT 210 3 Probability and Computing
+add-course CMPT 213 3 Object Oriented Design in Java
+add-course CMPT 225 3 Data Structures and Programming
+add-course CMPT 263 3 Introduction to Human-Centred Computing
+add-course CMPT 272 3 Web I - Client-side Development
+add-course CMPT 276 3 Introduction to Software Engineering
+add-course CMPT 295 3 Introduction to Computer Systems
+add-course CMPT 300 3 Operating Systems I
+add-course CMPT 307 3 Data Structures and Algorithms
+add-course CMPT 310 3 Introduction to Artificial Intelligence
+add-course CMPT 353 3 Computational Data Science
+add-course CMPT 354 3 Database Systems I
+add-course CMPT 371 3 Data Communications and Networking
+add-course CMPT 373 3 Software Development Methods
+add-course CMPT 383 3 Comparative Programming Languages
+add-course MACM 101 4 Discrete Mathematics I
+add-course MACM 201 3 Discrete Mathematics II
+add-course MATH 150 4 Calculus I with Review
+add-course MATH 151 4 Calculus I
+add-course MATH 152 4 Calculus II
+add-course MATH 232 3 Applied Linear Algebra
+add-course MATH 240 3 Algebra I: Linear Algebra
+add-course STAT 270 3 Introduction to Probability and Statistics
