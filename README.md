@@ -1,5 +1,5 @@
-# assignment2v2
-CMPT225 assignment2 version2
+# assignment2
+CMPT225 assignment2
 
 For assignment 2, your group builds *CourseReg*, a small course registration system that runs at the command line. Students enroll in courses. When a course is full they join its waitlist, and when someone drops the course, the waitlisted student with the highest priority gets the seat.
 
