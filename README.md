@@ -180,3 +180,8 @@ One member submits for the whole group. Zip the project directory and submit the
 
 ## Deadline
 Sunday, December 7, 2026, at 11:59 PM PDT
+
+## Resources
+- [AVL trees](https://www.geeksforgeeks.org/dsa/introduction-to-avl-tree/)
+- [Min-heap](https://www.geeksforgeeks.org/dsa/introduction-to-min-heap-data-structure/)
+- [Hash table](https://www.geeksforgeeks.org/dsa/hash-table-data-structure/)
