@@ -179,7 +179,7 @@ One member submits for the whole group. Zip the project directory and submit the
 **Your program must compile and execute successfully. If the program fails to compile or crashes during execution, the submission will receive a grade of zero.**
 
 ## Deadline
-Sunday, December 7, 2026, at 11:59 PM PDT
+Sunday, December 4, 2026, at 11:59 PM PDT
 
 ## Resources
 - [AVL trees](https://www.geeksforgeeks.org/dsa/introduction-to-avl-tree/)
